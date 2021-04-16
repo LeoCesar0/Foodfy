@@ -1,0 +1,85 @@
+{% extends 'adm/adm_layout.njk' %}
+
+{% block head %}
+<title>AdminFoodfy - Edit Recipe</title>
+{% endblock %}
+
+{% block content %}
+    <div class="edit_form">
+        <form  method="POST" action="/admin/recipes?_method=PUT" >
+   <div class="create_recipe">
+
+        <p class="title">Editando receita</p>
+
+        <input type="submit" value="Salvar receita">
+        <span class="first-delete" onclick="enableOverlay()">Deletar</span>
+
+        <div class="item">
+             <p class="subtitle">Título da receita</p>
+             <input type="text" name="title" value="{{recipe.title}}">
+        </div>
+
+        <div class="item">
+             <p class="subtitle">Autor</p>
+             <input type="text" name="author" value="{{recipe.author}}">
+        </div>
+
+        <div class="item">
+             <p class="subtitle">imagem da receita</p>
+             <input type="url" name="image" placeholder="Insira uma URL válida" value="{{recipe.image}}">
+        </div>
+         
+        <div class="item">
+            <div id="ingredients">
+             <div class="subtitle">Ingredientes</div>
+                {% for ingredient in recipe.ingredients %}
+                    <div class="ingredient">
+                    <input type="text" name="ingredients[]" value="{{ingredient}}"> 
+                </div>
+                {% endfor %}
+            </div>
+             <span class="add_ingredient add_button">Adicionar novo ingrediente</span>
+        </div>
+        
+        <div class="item">
+            <div id="preparations">
+             <p class="subtitle">Modo de preparo</p>
+                {% for prep in recipe.preparation %}
+               <div class="preparation">
+                    <input type="text" name="preparation[]" value="{{prep}}" placeholder="Passo a passo">
+               </div>
+                {% endfor %}
+            </div>
+             <span class="add_step add_button">Adicionar novo passo</span>
+        </div>
+
+        <div class="item">
+             <p class="subtitle">Informações adicionais</p>
+             <textarea name="information" cols="30" rows="10">{{recipe.information}}</textarea>
+        </div>
+
+    </div>
+    <input type="hidden" name="id" value="{{recipe.id}}">
+        </form>
+
+<div class="delete-overlay">
+     <div class="delete-modal">
+     <div class="delete-content">
+          <form id="delete-button" action="/admin/recipes?_method=DELETE" method="POST">
+               <input type="hidden" name="id" value="{{recipe.id}}">
+               <h2>Tem certeza que deseja deletar essa receita?</h2>
+               <div class="delete-buttons">
+                    <button type="submit" class="second-delete">Deletar</button>
+                    <span class="close-modal" onclick="disableOverlay()">Cancelar</span>          
+               </div>
+
+        </form>
+     </div>
+     </div>
+</div>
+
+    <script src="/addbuttonscript.js"></script>
+    <script src="/editscript.js"></script>
+    </div>
+
+{% endblock %}
