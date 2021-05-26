@@ -421,6 +421,7 @@ footer p{
 
 /* === ADM INDEX === */
 
+
 .adm_index .recipes{
     max-width: 940px;
     width: 940px;
@@ -434,6 +435,7 @@ footer p{
 .adm_index .aside-info{
     display:inline-block
 }*/
+
 
 .adm_index .recipe{
     display: flex;
@@ -456,6 +458,16 @@ footer p{
     cursor: pointer;
 }
 
+.adm_index .second-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn-add-recipe{
+    text-decoration: none;
+}
+
 .show-title{
     display: block;
     margin: 0 auto;
@@ -472,7 +484,8 @@ footer p{
     float: left;
 }
 
-.show-title button.button{
+.show-title button.button,
+a.button{
     float: right;
     color: white;
     background-color: #6558c3;

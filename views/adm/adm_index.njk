@@ -8,7 +8,10 @@
     {% block content %}
 
 <section class="adm_index"> 
-    <div class="second-header"><h2>Gerencia receitas</h2></div>
+    <div class="second-header"><h2>Gerencia receitas</h2>
+    <a href="/admin/recipes/create" class="btn-add-recipe button">Adicionar Receita</a>
+    </div>
+    
 <div class="recipes">
 
     {% for recipe in recipes %}
@@ -39,7 +42,7 @@
     }
 </script>
 
-<script src="/scripts.js"></script>
+<script src="/scripts/scripts.js"></script>
 
     {% endblock %}
 
