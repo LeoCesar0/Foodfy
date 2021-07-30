@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% block head %}
+            <title>Admin Foodfy</title>
+        {% endblock %}
+        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="stylesheet" href="/styles/admin.css">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    </head>
+
+    <body>
+        <header class="admin-header">
+            <span><img src="/Assets/logoadm.png" onclick="homeLink()" alt="" srcset=""></span>
+
+            <div class="links">
+                <a href="/admin/receitas">Receitas</a>
+                <a href="/admin/chefs">Chefs</a>
+            </div>
+        </header>
+
+
+        <script src="/scripts/linkscript.js"></script>
+        <script src="/scripts/photosUpload.js"></script>
+
+        {% block content %}{% endblock %}
+
+
+    </body>
+</html>

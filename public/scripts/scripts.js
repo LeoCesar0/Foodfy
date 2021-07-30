@@ -7,10 +7,11 @@ const link = document.querySelectorAll('.recipes .linkButton')
 
 for (let recipe in recipes){
     let id = recipes[recipe].getAttribute("id")
+    
 
     function openLink(){
         if (location.pathname.includes("admin")){
-            window.location.href = `/admin/recipes/${id}`
+           window.location.href = `/admin/receitas/${id}`
         } else window.location.href = `/receita/${id}`
     }
 

@@ -23,7 +23,7 @@
 
             {% for recipe in recipes %}
 
-                <div class="recipe" id="{{ loop.index }}">
+                <div class="recipe" id="{{ recipe.id }}">
                     <div class="recipe-image" style="background: url({{recipe.image}}) no-repeat center center / cover"></div>
                     <div class="recipe-name">
                         <p>{{recipe.title}}</p>

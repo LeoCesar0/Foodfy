@@ -1,21 +1,38 @@
-   <div class="create_recipe">
+   <div class="create">
 
-        <p class="title">Criando receita</p> <input type="submit" value="Salvar receita">
+        <p class="title">Criando receita</p> 
+        
+        <input type="submit" value="Salvar receita">
 
         <div class="item">
              <p class="subtitle">Título da receita</p>
              <input type="text" name="title" value="{{recipe.title}}">
         </div>
 
+                <div class="item">
+               <p class="subtitle">Imagens da receita</p>
+               <div id="photos-container">
+                    <div id="photos-preview">
+                    </div>
+                    <div id="photos-upload">
+                         <input 
+                         id="photos-input"
+                         type="file" 
+                         name="photos" 
+                         multiple
+                         accept="image/*"
+                         onchange="PhotosUpload.handleFileInput(event)"
+                         >
+                         <i class="material-icons">add</i>
+                    </div>
+               </div>
+        </div>
+     
         <div class="item">
              <p class="subtitle">Autor</p>
              <input type="text" name="author" value="{{recipe.author}}">
         </div>
 
-        <div class="item">
-             <p class="subtitle">imagem da receita</p>
-             <input type="url" name="image" placeholder="Insira uma URL válida" value="{{recipe.image}}">
-        </div>
          
         <div class="item">
             <div id="ingredients">

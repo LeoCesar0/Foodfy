@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 
 
+:root{
+    --primary-color: #6558c3;
+}
+
 *{
     margin: 0; 
     padding: 0;
@@ -8,16 +12,35 @@
 }
 
 body{
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+
     color: #111111;
     font-family: 'Roboto', sans-serif;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+a.button,
+button{
+    font-size: 16px;
+    background: #6558C3;
+    border-radius: 4px;
+    color: white;
+
+    cursor: pointer;
 }
 
 .header-home{
     display: flex;
     align-items: center;
-    margin-top: 36px;
-    margin-left: 230px;
-    margin-bottom: 30px;
+    width: 940px;
+    margin: 36px auto 30px;
 }
 
 .header-home span{
@@ -29,7 +52,9 @@ body{
 
 
 header .links{
-    word-spacing: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 
 }
 
@@ -45,10 +70,55 @@ header .links a.active{
     font-weight: bold;
 }
 
+header .header-content{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-content form input{
+    height: 100%;
+    padding: 0 16px;
+
+    border-radius: 4px;
+    border: 1px solid #DDDDDD;
+
+    background: white;
+    font-size: 14px;
+    color: #999999;
+}
+
+.search-button{
+    padding: 0 16px;
+    height: 100%;
+}
+
+footer{
+    display: flex;
+    background-color: #eeeeee;
+    height: 62px;
+    margin-top: 50px;
+    width: 100%;
+
+    align-self: flex-end;
+    justify-self: center;
+
+}
+
+footer p{
+    margin: auto;
+    font-size: 14px;
+    line-height: 23px;
+    text-align: center;
+}
+
+/* -------------------------- CONTENT*/
+
 .home {
     display: flex;
     margin: 0 auto;
-    max-width: 940px;
+    width: 940px;
     background: #FBDFDB;
     border-radius: 30px;
     align-items: center;
@@ -109,6 +179,8 @@ section{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
+
+    flex: 1;
 }
 
 .recipe-image{
@@ -133,20 +205,7 @@ section{
     font-size: 14px;
 }
 
-footer{
-    display: flex;
-    background-color: #eeeeee;
-    height: 62px;
-    margin-top: 50px;
-    width: 100%;
-}
 
-footer p{
-    margin: auto;
-    font-size: 14px;
-    line-height: 23px;
-    text-align: center;
-}
 
 
 /* === MODAL === */
@@ -224,6 +283,34 @@ footer p{
     width: 940px;
 }
 
+/* ----------------------- PAGINATION */
+
+.search_results{
+    width: 940px;
+    margin: 0 auto;
+}
+
+.pagination{
+    margin-top: 8px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination a{
+    color: #6558C3;
+    transition: filter 0.2s;
+}
+
+.pagination a:hover{
+    text-decoration: underline;
+    filter: brightness(0.3);
+}
+
+
+
 /* === INDIVIDUAL RECIPES === */
 
 .recipeid{
@@ -252,10 +339,26 @@ footer p{
     text-align: left;
 }
 
-.recipeid .recipeid_content p{
+.recipeid .recipeid_content p,
+.recipeid .recipeid_content li,
+.recipeid_content ol{
     font-size: 18px;
     color: #444444;
     line-height: 28px; 
+}
+
+.recipeid_content ol li{
+    list-style: decimal;
+    list-style-position: inside;
+}
+
+.recipeid_content ul li{
+    list-style: none;
+}
+
+.recipeid_content ul:nth-child(4) li{
+    list-style: decimal;
+    list-style-position: inside;
 }
 
 
@@ -266,7 +369,7 @@ footer p{
     font-size: 24px;
 }
 
-.recipeid .button{
+.recipeid .button{ 
     cursor: pointer;
     font-size: 12px;
     color: #999999;
@@ -277,219 +380,52 @@ footer p{
     display: none;
 }
 
-/* === CREATE NEW RECIPE === */
 
-.admin-header{
-    background-color: black;
-    display: flex;
-    align-items: center;
+/* --------------------- CHEFS Listagem*/
+
+.chefs{
+    width: 940px;
     margin: 0 auto;
-    height: 80px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    flex: 1;
 }
 
-.admin-header span{
-    margin-left: 230px;
-    height: 27px;
-    width: 91px;
-    cursor: pointer;
+.chefs .chef-image{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+
+    object-fit: cover;
 }
 
-.create_recipe .title{
-    display: inline-block;
-    font-weight: bold;
-    font-size: 24px;
-    color: #111111;
-    margin-bottom: 30px;
-}
-
-.create_recipe .subtitle{
-    font-size: 16px;
-    color: #111111;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.create_recipe input[type="url"]:placeholder-shown{
+.chef-name p{
     font-size: 18px;
 }
 
-.create_recipe{
-    margin: 50px auto;
-    width: 940px;
-}
 
-.create_recipe .item{
-    margin-bottom: 30px;
-}
-
-.create_recipe .item input,
-.create_recipe textarea{
-    background-color: #FFFFFF;
-    border: 1px solid #DDDDDD;
-    width: 100%;
-    height: 49px;
-    font-size: 20px;
-    border-radius: 4px;
-}
-
-.create_recipe .ingredient,
-.create_recipe .preparation{
-    margin-bottom: 5px;
-}
-
-.create_recipe .add_button{
-    display: inline-block;
-    font-size: 16px;
-    color: #6558c3;
-    font-weight: bold;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-.create_recipe textarea[name="recipe-info"]{
-    height: 260px;
-}
-
-.create_recipe input[type="submit"],
-.first-delete{
-    float: right;
-    color: white;
-    background-color: #6558c3;
-    cursor: pointer;
-    padding: 10px 32px;
-    border-radius: 4px;
-    margin-left: 5px;
-    font-size: 14px;
-    display: inline-block;
-}
-
-.first-delete{
-    background-color: maroon;
-}
-
-/* EDIT FORM */
-
-#delete-button button,
-#delete-button span{
-    color: white;
-    background-color: maroon;
-    cursor: pointer;
-    border-radius: 4px;
-    padding: 12px 32px;
-    text-align: center;
-    font-size: 14px;
-}
-
-.delete-overlay{
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.delete-overlay.active{
-    opacity: 1;
-    visibility: visible;
-}
-
-.delete-modal{
-    display: flex;
-    background-color: white;
-    width: 30%;
-    height: 18%;
-    margin: 10vh auto;
-    border-radius: 20px;
-    justify-content: center;
-}
-.delete-modal h2{
-    margin: 40px auto;
-    font-size: 24px;
-}
-
-.delete-modal .delete-buttons{
-    display: flex;
-    justify-content: center;
-}
-
-.delete-modal #delete-button span.close-modal{
-    margin-left: 16px;
-    background-color: #6558c3;
-}
-
-/* === ADM INDEX === */
-
-
-.adm_index .recipes{
-    max-width: 940px;
-    width: 940px;
-    margin: 0 auto;
+.chefs .chef{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 2fr;
 }
 
-/*.adm_index .recipe-image,
-.adm_index .aside-info{
-    display:inline-block
-}*/
-
-
-.adm_index .recipe{
-    display: flex;
-    align-content: center;
+.chefs .chef-image{
+    align-self: center;
 }
 
-.adm_index .recipe-image{
-    width: 172px;
-    height: 80px;
-    border-radius: 8,57px;
-    cursor: pointer;
-    margin-right: 20px;
-    margin-bottom: 0px;
+.chefs .aside-info{
+    align-self: center;
 }
 
-.adm_index span.linkButton{
+.chefs span{
     font-size: 14px;
-    color: #6558c3;
-    font-weight: bold;
-    cursor: pointer;
+    color: #666666;
 }
 
-.adm_index .second-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.chefs .chef-name{
+    margin-bottom: 10px;
+    line-height: 18px;
 }
 
-.btn-add-recipe{
-    text-decoration: none;
-}
-
-.show-title{
-    display: block;
-    margin: 0 auto;
-    width: 940px;
-    padding: 5px;
-    margin-top: 50px;
-}
-
-.show-title p{
-    display: inline-block;
-    font-size: 24px;
-    font-weight: bold;
-    color: #111111;
-    float: left;
-}
-
-.show-title button.button,
-a.button{
-    float: right;
-    color: white;
-    background-color: #6558c3;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 16px;
-}

@@ -1,0 +1,53 @@
+{% extends 'layout.njk' %}
+
+{% block head %}
+    <title>Foodfy - Receitas</title>
+{% endblock %}
+
+{% block content %}
+
+    {% if pagination.totalItens > 0 %}
+        <div class="search_results">
+            Encontramos {{pagination.totalItens}} resultados.
+        </div>
+
+        {% else %}
+
+        <div class="search_results">
+            Nenhum resultado encontrado
+        </div>
+            
+    {% endif %}
+
+    <div class="grid_container recipes">
+
+        {% for recipe in recipes %}
+
+            <div class="recipe" id="{{ recipe.id }}">
+                <div class="recipe-image" style="background: url({{recipe.image}}) no-repeat center center / cover"></div>
+                <div class="recipe-name">
+                    <p>{{recipe.title}}</p>
+                </div>
+                <div class="recipe-info">
+                    <p>{{recipe.author}}</p>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="pagination"
+        data-page={{pagination.page}}
+        data-total={{pagination.total}}
+        data-search={{search}}
+    >
+        
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="/scripts/scripts.js"></script>
+    <script src="/scripts/paginate.js"></script>
+{% endblock %}

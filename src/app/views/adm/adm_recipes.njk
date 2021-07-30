@@ -1,0 +1,40 @@
+{% extends 'adm/adm_layout.njk' %}
+
+{% block head %}
+    <title>AdminFoodfy - Lista de Receitas</title>
+{% endblock %}
+
+{% block content %}
+
+    <section class="adm_container">
+        <div class="second-header">
+            <h2>Gerenciar receitas</h2>
+            <a href="/admin/receitas/create" class="btn-add-recipe button">Adicionar Receita</a>
+        </div>
+
+        <div class="recipes">
+
+            {% for recipe in recipes %}
+
+                <div class="recipe" id="{{recipe.id}}">
+                    <div class="recipe-image" id="link" style="background: url({{recipe.image}}) no-repeat center center / cover"></div>
+                    <div class="aside-info">
+                        <div class="recipe-name" id="link">
+                            <p>{{recipe.title}}</p>
+                        </div>
+                        <div class="recipe-info">
+                            <p>{{recipe.author}}</p>
+                        </div>
+                        <span class="linkButton" id="link">Visualizar</span>
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+    <script src="/scripts/scripts.js"></script>
+
+{% endblock %}

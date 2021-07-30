@@ -1,0 +1,52 @@
+{% extends 'adm/adm_layout.njk' %}
+
+{% block head %}
+    <title>AdminFoodfy - Editar
+        {{ chef.name }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="edit_form">
+        <form method="POST" action="/admin/chefs?_method=PUT">
+            <div class="create">
+
+                <p class="title">Editando Chef</p>
+
+                <input type="submit" value="Salvar receita">
+                <span class="first-delete" onclick="enableOverlay()">Deletar</span>
+
+                <div class="item">
+                    <p class="subtitle">Nome</p>
+                    <input type="text" name="name" value="{{chef.name}}">
+                </div>
+
+                <div class="item">
+                    <p class="subtitle">Avatar</p>
+                    <input type="url" name="avatar_url" placeholder="Insira uma URL válida" value="{{chef.avatar_url}}">
+                </div>
+
+                <input type="hidden" name="id" value="{{chef.id}}">
+            </div>
+        </form>
+
+        <div class="delete-overlay">
+            <div class="delete-modal">
+                <div class="delete-content">
+                    <form id="delete-button" action="/admin/chefs?_method=DELETE" method="POST">
+                        <input type="hidden" name="id" value="{{chef.id}}">
+                        <h2>Tem certeza que deseja deletar essa receita?</h2>
+                        <div class="delete-buttons">
+                            <button type="submit" class="second-delete">Deletar</button>
+                            <span class="close-modal" onclick="disableOverlay()">Cancelar</span>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="/scripts/addbuttonscript.js"></script>
+        <script src="/scripts/editscript.js"></script>
+    </div>
+
+{% endblock %}

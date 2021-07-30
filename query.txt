@@ -1,0 +1,17 @@
+INSERT INTO recipes (
+            image,
+            title,
+            ingredients,
+            preparation,
+            information,
+            created_at
+        ) VALUES ('https://www.melhoresdestinos.com.br/wp-content/uploads/2020/12/comidas-tipicas-capa2019-01-820x430.jpg',
+                  'feijoada', '{"arroz", "feijão"}', '{"cozinhar", "mexer"}', 'criado com carinho', '2020-02-01')
+        RETURNING id
+
+
+SELECT chefs.*, count(recipes) AS total_recipes
+FROM chefs
+LEFT JOIN recipes on (recipes.chef_id = chefs.id)
+GROUP BY chefs.id
+ORDER BY chefs.id

@@ -1,0 +1,28 @@
+{% extends 'adm/adm_layout.njk' %}
+
+{% block head %}
+    <title>AdminFoodfy - Novo Chef</title>
+{% endblock %}
+
+{% block content %}
+    <form method="POST" action="/admin/chefs">
+
+        <div class="create">
+
+            <p class="title">Criando Chef</p>
+
+            <input type="submit" value="Salvar Chef">
+
+            <div class="item">
+                <p class="subtitle">Nome</p>
+                <input type="text" name="name" value="">
+            </div>
+            <div class="item">
+                <p class="subtitle">Avatar</p>
+                <input type="text" name="avatar_url" value="">
+            </div>
+
+        </div>
+
+    </form>
+{% endblock %}

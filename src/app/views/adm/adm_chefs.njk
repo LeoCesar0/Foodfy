@@ -1,0 +1,44 @@
+{% extends 'adm/adm_layout.njk' %}
+
+    {% block head %}
+    <title>AdminFoodfy - Lista de Chefs</title>
+    {% endblock %}
+
+
+    {% block content %}
+
+<section class="adm_container"> 
+    <div class="second-header"><h2>Gerenciar Chefs</h2>
+    <a href="/admin/chefs/create" class="btn-add-chef button">Adicionar Chefs</a>
+    </div>
+    
+<div class="chefs">
+
+    {% for chef in chefs %}
+
+    <div class="chef" id="{{ chef.id }}"> 
+        <img class="chef-image" src="{{chef.avatar_url}}" alt="{{chef.name}}">
+
+        <div class="aside-info">
+            <div class="chef-name">
+                <p>{{chef.name}}</p>
+             </div>
+            <span class="linkButton link">Visualizar</span>
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+</section>
+
+<script>
+
+</script>
+
+<script src="/scripts/chefscript.js"></script>
+
+    {% endblock %}
+
+

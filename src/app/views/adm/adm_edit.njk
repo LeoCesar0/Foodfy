@@ -1,13 +1,13 @@
 {% extends 'adm/adm_layout.njk' %}
 
 {% block head %}
-<title>AdminFoodfy - Edit Recipe</title>
+<title>AdminFoodfy - Editar Receita</title>
 {% endblock %}
 
 {% block content %}
     <div class="edit_form">
-        <form  method="POST" action="/admin/recipes?_method=PUT" >
-   <div class="create_recipe">
+        <form  method="POST" action="/admin/recipes?_method=PUT" enctype="multipart/form-data">
+   <div class="create">
 
         <p class="title">Editando receita</p>
 

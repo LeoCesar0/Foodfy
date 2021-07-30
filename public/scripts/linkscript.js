@@ -8,9 +8,17 @@ for (link of links){
     }
 }
 
-logo.addEventListener("click", function(){
-    window.location = "/"
-})
+
+if(currentPage.includes('admin')){
+    logo.addEventListener("click", function(){
+        window.location = "/admin"
+    })
+} else {
+    logo.addEventListener("click", function(){
+        window.location = "/"
+    })
+}
+
 
 
 

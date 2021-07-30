@@ -1,0 +1,83 @@
+{% extends 'adm/adm_layout.njk' %}
+
+{% block head %}
+    <title>AdminFoodfy -
+        {{chef.name}}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="adm_container">
+        <div class="show-title">
+            <p>Chef:
+                {{chef.name}}</p>
+
+            <button class="button" onclick="editLink()">Editar Chef</button>
+        </div>
+
+        <div class="chef_container">
+            <div class="chef_info">
+                <img class="chef_image" src="{{chef.avatar_url}}" alt="">
+                <div class="chef_name">
+                    <h1>{{chef.name}}</h1>
+                    <p>{{total_recipes}}
+                        receitas</p>
+                </div>
+            </div>
+
+            <div class="chef_recipes">
+
+                <div class="chef_recipes_subtitle" id='1'>
+                    <h2>Receitas</h2>
+                </div>
+
+                {% if recipes == null %}
+
+                    <p class="recipe-checker">Esse Chef ainda não possui receitas.
+                        <br>
+                        <a href="/admin/receitas/create">Adicionar primeira receita</a>
+                    </p>
+
+                {% else %}
+                    <div class="recipes">
+
+                        {% for recipe in recipes %}
+
+                            <div class="recipe" id="{{ recipe.id }}">
+                                <div class="recipe-image" id="link" style="background: url({{recipe.image}}) no-repeat center center / cover"></div>
+                                <div class="aside-info">
+                                    <div class="recipe-name" id="link">
+                                        <p>{{recipe.title}}</p>
+                                    </div>
+                                    <div class="recipe-info">
+                                        <p>{{recipe.author}}</p>
+                                    </div>
+                                    <span class="linkButton" id="link">Visualizar</span>
+                                </div>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/scripts/scripts.js"></script>
+
+<script>
+    function editLink() {
+        const id = {{chef.id}}
+
+        window.location.href = `/admin/chefs/edit/${id}`
+    }
+</script>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 const addIngredient = document.querySelector("span.add_ingredient")
-const ingredients = document.querySelector(".create_recipe #ingredients")
+const ingredients = document.querySelector(".create #ingredients")
 const fieldContainer = document.querySelectorAll(".ingredient")
 
 
@@ -12,6 +12,7 @@ function addIngredientFunc(){
     }
 
     newField.children[0].value = ""
+
     ingredients.appendChild(newField)
 }
 
@@ -19,9 +20,9 @@ addIngredient.addEventListener("click", addIngredientFunc)
 
 /////////////////////////////////////////////////////////////
 
-const stepField = document.querySelectorAll(".create_recipe .preparation")
-const preparations = document.querySelector(".create_recipe #preparations")
-const addStep = document.querySelector(".create_recipe .add_step")
+const stepField = document.querySelectorAll(".create .preparation")
+const preparations = document.querySelector(".create #preparations")
+const addStep = document.querySelector(".create .add_step")
 
 
 addStep.addEventListener("click", function(){

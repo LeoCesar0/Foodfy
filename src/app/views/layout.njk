@@ -8,15 +8,27 @@
         {% block head %}
             <title>Foodfy</title>
         {% endblock %}
+
         <link rel="stylesheet" href="/styles/styles.css">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
     </head>
 
     <body>
         <header class="header-home">
             <span><img src="/Assets/logo.png" alt="" srcset=""></span>
-            <div class="links">
-                <a href="/sobre">Sobre</a>
-                <a href="/receitas">Receitas</a>
+            <div class="header-content">
+                <div class="links">
+                    <a href="/sobre">Sobre</a>
+                    <a href="/receitas">Receitas</a>
+                    <a href="/chefs">Chefs</a>
+                </div>
+                
+                <form class="search" action="/busca" method="GET">
+                    <input type="text" name="search" placeholder="Buscar uma receita ou chef">
+                    <button class="button search-button" type="submit">Buscar</button>
+                </form>
             </div>
         </header>
 
@@ -25,7 +37,6 @@
         <footer>
             <p>Todos direitos reservados, receitas Foodfy.</p>
         </footer>
-
 
         <script src="/scripts/linkscript.js"></script>
 

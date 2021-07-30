@@ -1,15 +1,14 @@
-{% extends 'adm/adm_layout.njk' %}
+{% extends 'layout.njk' %}
 
     {% block head %}
-    <title>AdminFoodfy - {{recipe.title}}</title>
+    <title>Foodfy - {{recipe.title}}</title>
     {% endblock %}
 
 
     {% block content %}
-        <div class="show-title">
-            <p>Receita: {{recipe.title}}</p> <button class="button" onclick="openLink()" >Editar receita</button>
-        </div>
+
     <div class="recipeid">
+
      <div class="recipe"> 
         <div class="recipe-image" style="background: url({{recipe.image}}) no-repeat center center / cover">
         </div>
@@ -24,40 +23,39 @@
     <div class="recipeid_content">
 
         <div class="recipeid_title" id='1'>
-        <h2>Ingredientes</h2>
+        <h2>Ingredientes</h2> <span class="button hide" id="1">Esconder</span>
         </div>
-        <div class="recipe-hide-show">
+        <ul class="recipe-hide-show">
             {% for ingredient in recipe.ingredients %}
-            <p>- {{ingredient}};</p>
+            <li>- {{ingredient}};</li>
             {% endfor %}
-        </div>
+        </ul>
         
         <div class="recipeid_title" id='2'>
-        <h2>Modo de preparo</h2>
+        <h2>Modo de preparo</h2> <span class="button hide" id="2">Esconder</span>
         </div>
-        <div class="recipe-hide-show">
+        <ul class="recipe-hide-show" id="2">
             {% for prep in recipe.preparation %}
-                <p>- {{prep}};</p>
+            <li>{{prep}};</li>
             {% endfor %}
-        </div>
+        </ul>
 
         <div class="recipeid_title" id='3'>
-        <h2>Informações adicionais</h2>
+        <h2>Informações adicionais</h2> <span class="button hide" id="3">Esconder</span>
         </div>
 
         <p class="recipe-hide-show">{{recipe.information}}</p>
 
     </div>
+
     </div>
 
-    <script>
-        function openLink(){
-        const id = {{recipe.id}} - 1
-
-        window.location.href = `/admin/edit/${id}`
-        }
-    </script>
+    
 
     {% endblock %}
 
+
+{% block scripts %}
+    <script src="/scripts/hidescript.js"></script>
+{% endblock %}
 

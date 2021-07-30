@@ -1,11 +1,11 @@
 {% extends 'adm/adm_layout.njk' %}
 
 {% block head %}
-<title>AdminFoodfy - New Recipe</title>
+<title>AdminFoodfy - Nova Receita</title>
 {% endblock %}
 
 {% block content %}
-        <form  method="POST" action="/admin/recipes" >
+        <form  method="POST" action="/admin/recipes" enctype="multipart/form-data">
 
         {% include 'adm/adm_fields.njk' %}
 
